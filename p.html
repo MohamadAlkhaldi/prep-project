@@ -2,34 +2,67 @@
 <html>
 <head>
 	<title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-<link rel="stylesheet" type="text/css" href="main.css">
-<script type="text/javascript" src='jquery.js'></script
-</script>
-<script type="text/javascript" src='jquery.js'></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class='container'>
-<nav class="navbar navbar-default">
+
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebPageMaker</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class='input'><input type="text" class='form-control' name="sth" id='i1'></li>
+      <li><a id='division'>Division</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Add<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+        <li><a id='para'>Paragraph</a></li>
+		<li><a id='head'>Header</a></li>
+		<li><a id='list'>List</a></li>
+		<li><a id='img'>Image</a></li>
+		<li><a id='a'>Link</a></li>
+		<li><a id='title'>Title</a></li>
+		
+        </ul>
+      </li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Styling<span class="caret"></span></a>
+      </li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
+      	<ul class="dropdown-menu">
+      		<li><a id='clear'>Clear</a></li>
+			<li><a id='delete'>Delete</a></li>
+			<li><a id='hide'>Hide</a></li>
+
+      	</ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--nav class="navbar navbar-default">
 <div class='container-fluid'>
 	<ul class='nav navbar-nav'>
 		<li><input type="text" name="sth" id='i1'></li>
-		<li><button id='para'>Paragraph</button></li>
-		<li><button id='head'>Header+number</button></li>
-		<li><button id='list'>List+number of elem</button></li>
-		<li><button id='img'>Image</button></li>
-		<li><button id='a'>Link</button></li>
-		<li><button id='title'>Title</button></li>
-		<li><button id='division'>Division</button></li>
-		<li><button id='clear'>Clear</button></li>
-	
-	<li><button id='delete'>Delete</button></li>
-	<li><button id='hide'>Hide</button></li>
+		
+		<li><a id='para'>Paragraph</a></li>
+		<li><a id='head'>Header</a></li>
+		<li><a id='list'>List</a></li>
+		<li><a id='img'>Image</a></li>
+		<li><a id='a'>Link</a></li>
+		<li><a id='title'>Title</a></li>
+		<li><a id='division'>Division</a></li>
+		<li><a id='clear'>Clear</a></li>
+		<li><a id='delete'>Delete</a></li>
+		<li><a id='hide'>Hide</a></li>
 
 
 	</ul>
 
 </div>
-</nav>
+</nav-->
+
 <!--div class='container'>
 <div class='row grid' id='div1'>
 	1

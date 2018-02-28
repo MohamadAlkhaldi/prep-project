@@ -2,17 +2,29 @@ var value;
 var count=0;
 var dcounter = 0
 function placement(){
-	return prompt('which division?')
-}
+	var place = Number(prompt('which division?'))
+	if (dcounter === 0 ){
+		alert("Please creat a division first ")
+	}
+	else if(place === 0 || place === NaN || place > dcounter){
+		alert("Invalid input")
+	}
+	return place
+	}
+	
+
 $('document').ready(function(){
+
 	$('#para').on('click', function(){
+
 		value =	$('#i1').val()
 		$('#div'+placement()).append('<p>' + value + '</p>')
 	})
 
 	$('#head').on('click', function(){
 		value =	$('#i1').val()
-		$('#div'+placement()).append('<h' + value.slice(-1) + '>' + value.slice(0, length-1) + '</h' + value.slice(-1) + '>')
+		var size = prompt('What size? 1 > 6')
+		$('#div'+placement()).append('<h' + size + '>' + value + '</h' + size + '>')
 	})
 
 	$('#img').on('click', function(){
