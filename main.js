@@ -1,29 +1,33 @@
 var value;
 var count=0;
+var dcounter = 0
+function placement(){
+	return prompt('which division?')
+}
 $('document').ready(function(){
-	$('#p').on('click', function(){
+	$('#para').on('click', function(){
 		value =	$('#i1').val()
-		$('body').append('<p>' + value + '</p>')
+		$('#div'+placement()).append('<p>' + value + '</p>')
 	})
 
-	$('#h').on('click', function(){
+	$('#head').on('click', function(){
 		value =	$('#i1').val()
-		$('body').append('<h' + value.slice(-1) + '>' + value.slice(0, length-1) + '</h' + value.slice(-1) + '>')
+		$('#div'+placement()).append('<h' + value.slice(-1) + '>' + value.slice(0, length-1) + '</h' + value.slice(-1) + '>')
 	})
 
-	$('#i').on('click', function(){
+	$('#img').on('click', function(){
 		value =	$('#i1').val()
-		$('body').append('<img src="' + value + '">')
+		$('#div'+placement()).append('<img class="img-responsive" src="' + value + '">')
 	})
 
-	$('#t').on('click', function(){
+	$('#title').on('click', function(){
 		value =	$('#i1').val()
 		$('title').text(value)
 	})
 
-	$('#l').on('click', function(){
+	$('#list').on('click', function(){
 		value =	$('#i1').val()
-		$('body').append('<ol id='+count+'>' + value + '</ol>')
+		$('#div'+placement()).append('<ol id='+count+'>' + value + '</ol>')
 		var numI = prompt('How many list items?')
 		while(numI > 0){
 			var lI = prompt('add a list item')
@@ -38,9 +42,30 @@ $('document').ready(function(){
 	$('#a').on('click', function(){
 		value =	$('#i1').val()
 		var link = prompt('enter a link')
-		$('body').append('<a href="'+link+'">'+value+'</a>')
+		$('#div'+placement()).append('<a href="'+link+'">'+value+'</a>')
 		
 	})
+
+	$('#division').on('click', function(){
+		dcounter++
+		$('body').append('<div id=div'+dcounter+'>'+ dcounter +'</div>')
+	})
+
+	$('#clear').on('click', function(){
+		var x = placement()
+		$('#div'+ x).html(x)
+	})
+$('#delete').on('click', function(){
+		var x = placement()
+		$('#div'+ x).remove()
+	})
+$("#hide").on("click", function(){
+$('nav').hide()
+
+})
+
+
+	
 
 	// $('<button>undo<button'>).on('click', function(){
 	// 	repl
