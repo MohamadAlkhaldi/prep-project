@@ -66,7 +66,7 @@ $('document').ready(function(){
 
 	$('#clear').on('click', function(){
 		var x = placement()
-		$(x).html(x.slice(-1))
+		$(x).html('<span class="tohell">'+x.slice(-1)+'</span>')
 	})
 
 	$('#delete').on('click', function(){ 
