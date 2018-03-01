@@ -10,27 +10,30 @@ function placement(){
 	else if(place === 0 || place === NaN || place > dcounter){
 		alert("Invalid input")
 	}
-	return place
+	return '#div' + place
 	}
+
 function value(str){
 	var v = prompt(str)
 	return v
 }	
 
 
+
 $('document').ready(function(){
 
+
 	$('#para').on('click', function(){
-		$('#div'+placement()).append('<p>' + value('Enter your paragraph') + '</p>')
+		$(placement()).append('<p>' + value('Enter your paragraph') + '</p>')
 	})
 
 	$('#head').on('click', function(){
-		var size = valuevalue('What size? 1 > 6')
-		$('#div'+placement()).append('<h' + size + '>' + value('Enter text') + '</h' + size + '>')
+		var size = value('What size? 1 > 6')
+		$(placement()).append('<h' + size + '>' + value('Enter text') + '</h' + size + '>')
 	})
 
 	$('#img').on('click', function(){
-		$('#div'+placement()).append('<img class="img-responsive" src="' + value('Enter URL') + '">')
+		$(placement()).append('<img class="img-responsive" src="' + value('Enter URL') + '">')
 	})
 
 	$('#title').on('click', function(){
@@ -38,7 +41,7 @@ $('document').ready(function(){
 	})
 
 	$('#list').on('click', function(){
-		$('#div'+placement()).append('<ol id='+count+'>' + value('Enter list title') + '</ol>')
+		$(placement()).append('<ol id='+count+'>' + value('Enter list title') + '</ol>')
 		var numI = value('How many list items?')
 		while(numI > 0){
 			var lI = value('add a list item')
@@ -52,7 +55,7 @@ $('document').ready(function(){
 
 	$('#a').on('click', function(){
 		var link = value('Enter a link')
-		$('#div'+placement()).append('<a href="'+link+'">'+value('Enter name of link')+'</a>')
+		$(placement()).append('<a href="'+link+'">'+value('Enter name of link')+'</a>')
 		
 	})
 
@@ -63,61 +66,77 @@ $('document').ready(function(){
 
 	$('#clear').on('click', function(){
 		var x = placement()
-		$('#div'+ x).html(x)
+		$(x).html(x.slice(-1))
 	})
-$('#delete').on('click', function(){
-		var x = placement()
-		$('#div'+ x).remove()
+
+	$('#delete').on('click', function(){ 
+		$(placement()).remove()
 	})
-$("#hide").on("click", function(){
-$('nav').hide()
-$('.tohell').hide()
 
-})
+	$("#hide").on("click", function(){
+		$('nav').hide()
+		$('.tohell').hide()
 
-$('#divNum').click(function(){
-if(togle % 2 === 0){
-	$('.tohell').hide()
-} else {$('.tohell').show()}
-togle++
-})
+	})
 
-$('#size').on('click',function(){	
-$('#div'+placement()).css("font-size",value('Enter number + px'))
+	$('#divNum').click(function(){
+		if(togle % 2 === 0){
+		$('.tohell').hide()
+		} else {$('.tohell').show()}
+		togle++
+	})
 
-})
+	$('#size').on('click',function(){	
+	$(placement()).css("font-size",value('Enter number + px'))
 
-$('#family').on('click', function(){
-	$('#div' + placement()).css('font-family',value('Enter font name'))
-})
+	})
 
+	$('#family').on('click', function(){
+	$(placement()).css('font-family',value('Enter font name'))
+	})
 
-  $('#background').on('click',function(){
-  $('body').css("background-color", value('Choose a color') )
- })
+	$('#color').on('click', function(){
+	$(placement()).css('color',value('Enter color'))
+	})
 
-$('#alignment').on('click',function() {
+	$('#imgCircle').on('click', function(){
+		$(placement() + ' img').css('border-radius', '50%')
+	})
 
+	$('#imgBorder').on('click', function(){
+		$(placement() + ' img').css('border', '5px solid #021a40')
+	})
+
+	$('#imgSize').on('click', function(){
+		(placement()).css({'height': '50%', 'width':'50%'})
+	})
+
+	$('#backgroundD').on('click',function(){
+  	$(placement()).css("background-color", value('Choose a color') )
+ 	})
+
+  	$('#background').on('click',function(){
+  	$('body').css("background-color", value('Choose a color') )
+ 	})
+
+	$('#alignment').on('click',function() {
 	var v = value("pick from , text-center or text-right or text-left")
-	$('#div' + placement()).removeClass('text-center text-right text-left').addClass(v)
-})
-$('#borders').on('click',function(){
+	$(placement()).removeClass('text-center text-right text-left').addClass(v)
+	})
+
+	$('#borders').on('click',function(){
 	var b = value("pick from, solid or dashed or dotted or double ") 
-	$('#div' + placement()).css("border-style",b )
+	$(placement()).css("border-style",b )
+	})
 
-})
+	$('#margin').on('click',function(){
+	$(placement()).css("margin", value("Enter margins top right bottom left") )
+	})
 
-$('#margin').on('click',function(){
+	$('#padding').on('click',function(){
+	$(placement()).css("padding", value("Enter padding top right bottom left") )
+	})
 
-	$('#div' + placement()).css("margin", value("Enter margins top right bottom left") )
-})
 
-$('#padding').on('click',function(){
-
-	$('#div' + placement()).css("padding", value("Enter padding top right bottom left") )
-})
-	// $('<button>undo<button'>).on('click', function(){
-	// 	repl
-	// })
 
 })
