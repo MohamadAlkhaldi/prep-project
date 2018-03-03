@@ -1,13 +1,10 @@
-var value;
-var count=0;
-var dcounter = 0
-var togle =0
+
 function placement(){
 	var place = Number(prompt('which division?'))
-	if (dcounter === 0 ){
+	if (dcounter(0) === 0 ){
 		alert("Please creat a division first ")
 	}
-	else if(place === 0 || place === NaN || place > dcounter){
+	else if(place === 0 || place === NaN || place > dcounter(0)){
 		alert("Invalid input")
 	}
 	return '#div' + place
@@ -17,6 +14,20 @@ function value(str){
 	var v = prompt(str)
 	return v
 }	
+
+function counter() {
+	var count = 0
+	return function(n){
+		if(n===0){
+			return count
+		}
+		return count++
+	}
+}
+
+var counterTogle = counter()
+var dcounter = counter()
+var count = counter() 
 
 
 
@@ -41,15 +52,15 @@ $('document').ready(function(){
 	})
 
 	$('#list').on('click', function(){
-		$(placement()).append('<ol id='+count+'>' + value('Enter list title') + '</ol>')
+		$(placement()).append('<ol id='+count(0)+'>' + value('Enter list title') + '</ol>')
 		var numI = value('How many list items?')
 		while(numI > 0){
 			var lI = value('add a list item')
-			$("#"+count).append('<li>' + lI + '</li>')
+			$("#"+count(0)).append('<li>' + lI + '</li>')
 			
 			numI--
 		}
-		count++
+		count()
 
 	})
 
@@ -60,8 +71,7 @@ $('document').ready(function(){
 	})
 
 	$('#division').on('click', function(){
-		dcounter++
-		$('body').append('<div id=div'+dcounter+'><span class="tohell">'+ dcounter +'</span></div>')
+		$('body').append('<div id=div'+dcounter(0)+'><span class="tohell">'+ dcounter() +'</span></div>')
 	})
 
 	$('#clear').on('click', function(){
@@ -80,10 +90,9 @@ $('document').ready(function(){
 	})
 
 	$('#divNum').click(function(){
-		if(togle % 2 === 0){
+		if(counterTogle() % 2 === 0){
 		$('.tohell').hide()
 		} else {$('.tohell').show()}
-		togle++
 	})
 
 	$('#size').on('click',function(){	
